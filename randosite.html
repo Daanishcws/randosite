@@ -3,180 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Personalized Website</title>
+    <title>Personalized Story Experience</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             padding: 20px;
             line-height: 1.6;
+            color: #333;
+            background-color: #f7f7f7;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
-            background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         h1 {
-            color: #333;
+            color: #2c3e50;
+            margin-top: 0;
         }
         .welcome {
-            background-color: #e9f7fe;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            margin-bottom: 20px;
+            background-color: #ebf5fb;
+            border-left: 5px solid #3498db;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 0 5px 5px 0;
         }
         .welcome span {
             font-weight: bold;
+            color: #2980b9;
         }
         .story {
-            background-color: white;
-            padding: 20px;
+            background-color: #fbfbfb;
+            padding: 25px;
             border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
         }
         .story-title {
-            color: #2980b9;
+            color: #34495e;
             margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        p {
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 id="title">Your Personalized Experience</h1>
+        <h1 id="page-title">Your Personalized Experience</h1>
         
         <div class="welcome" id="welcome-message">
-            Welcome! Loading your personalized experience...
+            Welcome! Your personalized experience is loading...
         </div>
         
         <div class="story">
             <h2 class="story-title" id="story-title">Your Story</h2>
             <div id="story-content">
-                <p>Loading your story...</p>
+                <p>Your story is being prepared...</p>
             </div>
         </div>
     </div>
 
     <script>
-        // Very simple way to get a consistent random number for this browser
-        function getSimpleID() {
-            const nav = navigator.userAgent + navigator.language + screen.width + screen.height;
-            let hash = 0;
-            for (let i = 0; i < nav.length; i++) {
-                hash = ((hash << 5) - hash) + nav.charCodeAt(i);
-                hash = hash & hash;
-            }
-            return Math.abs(hash);
-        }
-        
-        // Titles
-        const titles = [
-            "Whispers of Imagination",
-            "Tales Untold",
-            "The Random Chronicles",
-            "Narrative Roulette",
-            "Story Spinner"
-        ];
-        
-        // Stories
-        const stories = [
-            {
-                title: "New Horizons: Alex's Overseas Adventure",
-                content: `<p>Alex stared at his laptop screen, still unable to believe the email he'd just received. A gaming studio in Tokyo had accepted his application for a game design internship. In just three weeks, he'd be living in Japan—a dream he'd had since he was twelve.</p>
-                <p>The reality of his new life hit him the moment he unlocked the door to his shared apartment in Shinjuku. His roommate, Kenji, a local game developer who worked at the same studio, greeted him with enthusiasm and a fridge full of strange but fascinating foods.</p>
-                <p>"Settling in might be tough at first," Kenji warned on that first night as they sat on the small balcony overlooking the neon-lit streets below. "But the good days make the hard ones worth it."</p>
-                <p>The first month proved Kenji right. Alex struggled with the language barrier, getting lost on the subway, and working in a creative environment where cultural references often flew over his head. His game concepts, which had seemed so innovative back home, were met with polite but confused looks from his Japanese colleagues.</p>
-                <p>But there were unexpected joys too. Kenji introduced him to a local gaming café where they spent weekend evenings competing in fighting game tournaments. Alex discovered his love for ramen at a tiny shop hidden in an alley near their apartment, where the chef eventually recognized him and would start preparing his usual order the moment he walked in.</p>`
-            },
-            {
-                title: "Finding Her Fight: Mei's Martial Arts Journey",
-                content: `<p>Mei Li closed the door to her apartment, dropped her gym bag on the floor, and flopped onto her couch with a groan. Her two cats—Ghost, a sleek white Siamese, and Shadow, a plump black domestic shorthair—immediately converged on her, purring and demanding attention despite her exhaustion.</p>
-                <p>"Some support system you are," she murmured affectionately, scratching Ghost behind the ears. "I just got my butt kicked for two hours straight, and all you care about is dinner."</p>
-                <p>For the past three months, Mei had been sampling different martial arts disciplines, searching for one that resonated with her on a deeper level. Today's Brazilian Jiu-Jitsu class had left her with sore muscles and a bruised ego. Last week's Muay Thai session had been similarly humbling. Before that, she'd tried traditional Karate, Wing Chun, and even a Krav Maga workshop.</p>
-                <p>Her passion for martial arts had been ignited during college, where she'd taken a women's self-defense course that awakened something within her—a combination of discipline, physical challenge, and philosophical depth that spoke to her analytical mind. Since then, she'd been searching for her martial arts home, a practice she could commit to for the long term.</p>
-                <p>Mei's journey wasn't making her professional life any easier. As a junior architect at a competitive firm, she was constantly fighting to prove herself worthy of more significant projects. Her boss had recently commented on the bruise on her forearm during a client presentation, raising an eyebrow that suggested perhaps she should focus more on blueprints than fighting techniques.</p>`
-            },
-            {
-                title: "Controlled Chaos: Lily's Clean Freak Chronicles",
-                content: `<p>Lily Chen stood in the doorway of her apartment, keys still in hand, frozen in horror at the scene before her. What had been an immaculately clean living room just hours ago now resembled the aftermath of a small tornado. Chip bags and soda cans littered her coffee table, someone's jacket was thrown over her carefully arranged decorative pillows, and was that—yes, that was definitely a pizza grease stain on her white area rug.</p>
-                <p>"Sorry about the mess!" called Jamie from the kitchen, where the sound of clattering dishes suggested even more chaos out of sight. "Game night got a little competitive."</p>
-                <p>Lily took a deep breath, counting to ten as her therapist had suggested for moments exactly like this. Game night. Right. She'd agreed to host her friends' weekly gathering, forgetting that her definition of "having a few people over" differed dramatically from her friends' understanding of the same concept.</p>
-                <p>"We saved you some pizza," said Morgan, emerging from the bathroom with wet hands that she was currently drying on her jeans rather than the carefully selected hand towels that Lily had placed there specifically for guests. "And we're about to start another round of Mario Kart if you want in."</p>
-                <p>Lily loved her friends. She really did. But as someone who color-coded her closet and alphabetized her spice rack, their casual approach to her living space triggered her anxiety like nothing else.</p>`
-            },
-            {
-                title: "Midnight Gamer: Zoe's Late Night Adventures",
-                content: `<p>The soft glow of Zoe's monitor illuminated her face as her fingers danced across the keyboard. A quick glance at the corner of her screen confirmed it was well past midnight, but the raid wasn't going to complete itself. Her guild was counting on her, and she wasn't about to let them down just because it was a school night.</p>
-                <p>A sudden weight landed on her desk, followed by the unmistakable sound of items being knocked to the floor. "Pixel! Not now," Zoe hissed, gently moving her tortoiseshell cat away from the keyboard. Pixel responded by flopping directly in front of the monitor, her tail swishing dangerously close to Zoe's mouse.</p>
-                <p>"Move, you little monster," Zoe whispered affectionately, relocating the cat to her lap where she could do less damage. Through her headphones, she could hear her teammates laughing.</p>
-                <p>"Cat attack again?" asked her friend Darius, his voice clear through the voice chat.</p>
-                <p>"As always," Zoe confirmed, returning her attention to the game. "She thinks my monitor is her personal sunset to block."</p>`
-            }
-        ];
-        
-        // Browser detection
-        function getBrowser() {
-            const ua = navigator.userAgent;
-            if (ua.indexOf("Chrome") > -1) return "Chrome";
-            if (ua.indexOf("Firefox") > -1) return "Firefox";
-            if (ua.indexOf("Safari") > -1) return "Safari";
-            if (ua.indexOf("Edge") > -1) return "Edge";
-            return "your browser";
-        }
-        
-        // Device detection
-        function getDevice() {
-            if (/Mobi|Android/i.test(navigator.userAgent)) return "mobile device";
-            if (/iPad|Tablet/i.test(navigator.userAgent)) return "tablet";
-            return "computer";
-        }
-        
-        // Cities
-        const cities = ["New York", "London", "Paris", "Tokyo", "Sydney", "Berlin", "Toronto", "Singapore"];
-        
-        // Weather
-        const weathers = ["sunny", "cloudy", "rainy", "snowy", "foggy", "windy"];
-        
         // Run on page load
-        window.onload = function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            // Website titles
+            var titles = [
+                "Whispers of Imagination",
+                "Tales Untold",
+                "The Random Chronicles",
+                "Narrative Roulette",
+                "Story Spinner"
+            ];
+            
+            // Simulated cities
+            var cities = [
+                "New York", "London", "Tokyo", "Paris", "Sydney"
+            ];
+            
+            // Simulated weather conditions
+            var weathers = [
+                "sunny", "partly cloudy", "rainy", "windy", "foggy"
+            ];
+            
+            // Four stories
+            var stories = [
+                {
+                    title: "New Horizons: Alex's Overseas Adventure",
+                    content: "<p>Alex stared at his laptop screen, still unable to believe the email he'd just received. A gaming studio in Tokyo had accepted his application for a game design internship. In just three weeks, he'd be living in Japan—a dream he'd had since he was twelve.</p><p>The reality of his new life hit him the moment he unlocked the door to his shared apartment in Shinjuku. His roommate, Kenji, a local game developer who worked at the same studio, greeted him with enthusiasm and a fridge full of strange but fascinating foods.</p><p>\"Settling in might be tough at first,\" Kenji warned on that first night as they sat on the small balcony overlooking the neon-lit streets below. \"But the good days make the hard ones worth it.\"</p><p>The first month proved Kenji right. Alex struggled with the language barrier, getting lost on the subway, and working in a creative environment where cultural references often flew over his head. His game concepts, which had seemed so innovative back home, were met with polite but confused looks from his Japanese colleagues.</p>"
+                },
+                {
+                    title: "Finding Her Fight: Mei's Martial Arts Journey",
+                    content: "<p>Mei Li closed the door to her apartment, dropped her gym bag on the floor, and flopped onto her couch with a groan. Her two cats—Ghost, a sleek white Siamese, and Shadow, a plump black domestic shorthair—immediately converged on her, purring and demanding attention despite her exhaustion.</p><p>\"Some support system you are,\" she murmured affectionately, scratching Ghost behind the ears. \"I just got my butt kicked for two hours straight, and all you care about is dinner.\"</p><p>For the past three months, Mei had been sampling different martial arts disciplines, searching for one that resonated with her on a deeper level. Today's Brazilian Jiu-Jitsu class had left her with sore muscles and a bruised ego. Last week's Muay Thai session had been similarly humbling.</p><p>Her passion for martial arts had been ignited during college, where she'd taken a women's self-defense course that awakened something within her—a combination of discipline, physical challenge, and philosophical depth that spoke to her analytical mind.</p>"
+                },
+                {
+                    title: "Controlled Chaos: Lily's Clean Freak Chronicles",
+                    content: "<p>Lily Chen stood in the doorway of her apartment, keys still in hand, frozen in horror at the scene before her. What had been an immaculately clean living room just hours ago now resembled the aftermath of a small tornado. Chip bags and soda cans littered her coffee table, someone's jacket was thrown over her carefully arranged decorative pillows, and was that—yes, that was definitely a pizza grease stain on her white area rug.</p><p>\"Sorry about the mess!\" called Jamie from the kitchen, where the sound of clattering dishes suggested even more chaos out of sight. \"Game night got a little competitive.\"</p><p>Lily took a deep breath, counting to ten as her therapist had suggested for moments exactly like this. Game night. Right. She'd agreed to host her friends' weekly gathering, forgetting that her definition of \"having a few people over\" differed dramatically from her friends' understanding of the same concept.</p><p>\"We saved you some pizza,\" said Morgan, emerging from the bathroom with wet hands that she was currently drying on her jeans rather than the carefully selected hand towels that Lily had placed there specifically for guests.</p>"
+                },
+                {
+                    title: "Midnight Gamer: Zoe's Late Night Adventures",
+                    content: "<p>The soft glow of Zoe's monitor illuminated her face as her fingers danced across the keyboard. A quick glance at the corner of her screen confirmed it was well past midnight, but the raid wasn't going to complete itself. Her guild was counting on her, and she wasn't about to let them down just because it was a school night.</p><p>A sudden weight landed on her desk, followed by the unmistakable sound of items being knocked to the floor. \"Pixel! Not now,\" Zoe hissed, gently moving her tortoiseshell cat away from the keyboard. Pixel responded by flopping directly in front of the monitor, her tail swishing dangerously close to Zoe's mouse.</p><p>\"Move, you little monster,\" Zoe whispered affectionately, relocating the cat to her lap where she could do less damage. Through her headphones, she could hear her teammates laughing.</p><p>\"Cat attack again?\" asked her friend Darius, his voice clear through the voice chat.</p>"
+                }
+            ];
+            
+            // Very simple pseudorandom number generator
+            function getSimpleRandom() {
+                // Use timestamp and screen dimensions for some randomness
+                var seed = new Date().getTime() + (screen.width || 1000) + (screen.height || 800);
+                // Get current day to keep consistent for same visitor
+                seed += new Date().getDate();
+                // Make it positive
+                return Math.abs(seed);
+            }
+            
             try {
-                // Get simple ID
-                const id = getSimpleID();
+                // Generate a simple random number
+                var randomSeed = getSimpleRandom();
                 
-                // Set title
-                const titleIndex = id % titles.length;
-                const pageTitle = titles[titleIndex];
-                document.getElementById('title').textContent = pageTitle;
+                // Get indices for personalization
+                var titleIndex = randomSeed % titles.length;
+                var cityIndex = (randomSeed + 1) % cities.length;
+                var weatherIndex = (randomSeed + 2) % weathers.length;
+                var storyIndex = (randomSeed + 3) % stories.length;
+                
+                // Set page title
+                var pageTitle = titles[titleIndex];
+                document.getElementById('page-title').textContent = pageTitle;
                 document.title = pageTitle;
                 
-                // Set welcome message
-                const cityIndex = id % cities.length;
-                const weatherIndex = (id + 1) % weathers.length;
-                const browser = getBrowser();
-                const device = getDevice();
+                // Determine device type
+                var deviceType = "computer";
+                if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+                    deviceType = "mobile device";
+                } else if (/iPad|Tablet/i.test(navigator.userAgent)) {
+                    deviceType = "tablet";
+                }
                 
+                // Determine browser type (simplified)
+                var browserName = "browser";
+                if (navigator.userAgent.indexOf("Chrome") > -1) browserName = "Chrome";
+                if (navigator.userAgent.indexOf("Firefox") > -1) browserName = "Firefox";
+                if (navigator.userAgent.indexOf("Safari") > -1) browserName = "Safari";
+                if (navigator.userAgent.indexOf("Edge") > -1) browserName = "Edge";
+                
+                // Set welcome message
                 document.getElementById('welcome-message').innerHTML = 
-                    `<p>Thank you for opening this website from your <span>${device}</span> in <span>${cities[cityIndex]}</span>, 
-                    where it's currently <span>${weathers[weatherIndex]}</span>.</p>
-                    <p>We see you're browsing with <span>${browser}</span>. We've prepared a custom story just for you!</p>`;
+                    "<p>Thank you for opening this website from your <span>" + deviceType + "</span> in <span>" + 
+                    cities[cityIndex] + "</span>, where it's currently <span>" + 
+                    weathers[weatherIndex] + "</span>.</p>" + 
+                    "<p>We see you're browsing with <span>" + browserName + "</span>. We've prepared a custom story just for you!</p>";
                 
                 // Set story
-                const storyIndex = (id + 2) % stories.length;
-                const story = stories[storyIndex];
-                document.getElementById('story-title').textContent = story.title;
-                document.getElementById('story-content').innerHTML = story.content;
+                document.getElementById('story-title').textContent = stories[storyIndex].title;
+                document.getElementById('story-content').innerHTML = stories[storyIndex].content;
                 
             } catch (error) {
-                // Fallback if anything fails
-                document.getElementById('welcome-message').innerHTML = 
-                    "<p>Welcome to your personalized experience!</p>";
-                
-                document.getElementById('story-title').textContent = stories[0].title;
+                // Fallback if anything goes wrong
+                document.getElementById('welcome-message').innerHTML = "<p>Welcome to your personalized story experience!</p>";
+                document.getElementById('story-title').textContent = "New Horizons: Alex's Overseas Adventure";
                 document.getElementById('story-content').innerHTML = stories[0].content;
             }
-        };
+        });
     </script>
 </body>
 </html>
